@@ -21,6 +21,7 @@ public:
             return list1;
         list1 = new ListNode(-101, list1);
         list2 = new ListNode(-101, list2);
+        ListNode *ans = list1;
         while (list1->next != nullptr && list2->next != nullptr)
         {
             if (list1->val <= list2->next->val &&
@@ -41,9 +42,9 @@ public:
             list2->next = tmp->next;
             tmp->next = list1->next;
             list1->next = tmp;
+            list1 = list1->next;
         }
-
-        return list1;
+        return ans->next;
     }
 };
 
