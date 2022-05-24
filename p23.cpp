@@ -80,6 +80,39 @@ public:
     }
 };
 
+/*
+class Solution
+{
+public:
+    ListNode *mergeKLists(vector<ListNode *> &lists)
+    {
+        if (lists.size() == 0)
+            return nullptr;
+
+        ListNode *head = new ListNode();
+        ListNode *temp = head;
+
+        while (true)
+        {
+            int low = 0;
+            for (int i = 0; i < lists.size(); i++)
+            {
+                if ((lists[low] != nullptr &&
+                     (lists[i] != nullptr && lists[low]->val > lists[i]->val)) ||
+                    (lists[low] == nullptr && lists[i] != nullptr))
+                    low = i;
+            }
+            if (lists[low] == nullptr)
+                break;
+            temp->next = lists[low];
+            temp = temp->next;
+            lists[low] = lists[low]->next;
+        }
+
+        return head->next;
+    }
+};
+*/
 int main()
 {
     int n;
