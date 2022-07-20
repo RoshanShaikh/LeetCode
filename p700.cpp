@@ -26,6 +26,18 @@ public:
             return searchBST(root->right, val);
         return nullptr;
     }
+
+    TreeNode *searchBstIteratively(TreeNode *root, int &val)
+    {
+        while (root && root->val != val)
+        {
+            if (val < root->val)
+                root = root->left;
+            else if (val > root->val)
+                root = root->right;
+        }
+        return root;
+    }
 };
 
 int main()
